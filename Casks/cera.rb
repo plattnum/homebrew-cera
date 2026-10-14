@@ -1,6 +1,6 @@
 cask "cera" do
-  version "0.1.0"
-  sha256 "6d0fe422bb9f293a5aeca93f6631fea96af41ed77ffdb43043b0a5cc20528ff0"
+  version "0.1.2"
+  sha256 "c54ca7504411bd49be4c6e81695b2a8bcd0ac2fd36f6c633054866e354375480"
 
   url "https://github.com/plattnum/cera/releases/download/v#{version}/Cera.zip"
   name "Cera"
@@ -10,6 +10,7 @@ cask "cera" do
   depends_on macos: :sequoia
 
   app "Cera.app"
+  binary "#{appdir}/Cera.app/Contents/Resources/cera"
 
   zap trash: "~/Library/Preferences/local.cera.app.plist"
 
