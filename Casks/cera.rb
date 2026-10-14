@@ -1,6 +1,6 @@
 cask "cera" do
-  version "0.1.2"
-  sha256 "c54ca7504411bd49be4c6e81695b2a8bcd0ac2fd36f6c633054866e354375480"
+  version "0.1.3"
+  sha256 "e4bbf90dc89c901aa0e0b765c4d9fdc42ab09cf86e4b89e2d00943a9513b9a3b"
 
   url "https://github.com/plattnum/cera/releases/download/v#{version}/Cera.zip"
   name "Cera"
@@ -11,16 +11,15 @@ cask "cera" do
 
   # The `cera` command runs the script bundled in the app through a shim Homebrew writes
   # itself, since macOS refuses to run the quarantined script directly.
-  shimscript = "#{staged_path}/cera.wrapper.sh"
-
   app "Cera.app"
-  binary shimscript, target: "cera"
+  binary "#{staged_path}/cera.wrapper.sh", target: "cera"
 
-  preflight do
-    File.write shimscript, <<~EOS
+  preflight_steps do
+    write_file "cera.wrapper.sh", <<~EOS
       #!/bin/sh
-      exec /bin/sh '#{appdir}/Cera.app/Contents/Resources/cera' "$@"
+      exec /bin/sh '{{appdir}}/Cera.app/Contents/Resources/cera' "$@"
     EOS
+    set_permissions "cera.wrapper.sh", "0755"
   end
 
   zap trash: "~/Library/Preferences/local.cera.app.plist"
