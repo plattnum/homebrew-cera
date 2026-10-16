@@ -1,6 +1,6 @@
 cask "cera" do
-  version "0.2.0"
-  sha256 "2d8cdd6ccad09774308b4c62c0f4da4e556bf872e512294ec735d7caede64fa4"
+  version "0.3.0"
+  sha256 "054a61af5f72b5a16137c92f94bc9c4c1730a0066180133fa8aa07d45be23589"
 
   url "https://github.com/plattnum/cera/releases/download/v#{version}/Cera.zip"
   name "Cera"
@@ -23,10 +23,4 @@ cask "cera" do
   end
 
   zap trash: "~/Library/Preferences/local.cera.app.plist"
-
-  caveats <<~EOS
-    Cera is not signed with an Apple Developer ID. If macOS blocks the first launch,
-    right-click Cera.app and choose Open, or run:
-      xattr -dr com.apple.quarantine #{appdir}/Cera.app
-  EOS
 end
