@@ -1,6 +1,6 @@
 cask "cera" do
-  version "0.6.1"
-  sha256 "d7ac81df1c420b919404c1085e13658d2532cc330f6244ba19a86b22d366b982"
+  version "0.6.2"
+  sha256 "56121a07eed06088142e5612588282ccf273d782e003a3ab36bec74ecb836483"
 
   url "https://github.com/plattnum/cera/releases/download/v#{version}/Cera.zip"
   name "Cera"
